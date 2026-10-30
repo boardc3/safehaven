@@ -26,9 +26,10 @@ export default function Layout() {
   const reduce = useReducedMotion()
   const { scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 26, mass: 0.4 })
+  // curtain only on a real route change, never on first load (robust to StrictMode double-mount)
   const [navs, setNavs] = useState(0)
-  const firstRef = useRef(true)
-  useEffect(() => { if (firstRef.current) { firstRef.current = false; return } setNavs(n => n + 1) }, [loc.pathname])
+  const prevPath = useRef(loc.pathname)
+  useEffect(() => { if (prevPath.current !== loc.pathname) { prevPath.current = loc.pathname; setNavs(n => n + 1) } }, [loc.pathname])
 
   useEffect(() => {
     const f = () => setScrolled(window.scrollY > 8)

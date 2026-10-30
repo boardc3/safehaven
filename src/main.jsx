@@ -19,8 +19,7 @@ import Privacy from './pages/Privacy.jsx'
 import './styles.css'
 
 createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <HashRouter>
+  <HashRouter>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Index />} />
@@ -40,6 +39,5 @@ createRoot(document.getElementById('root')).render(
           <Route path="*" element={<Index />} />
         </Route>
       </Routes>
-    </HashRouter>
-  </React.StrictMode>
+  </HashRouter>
 )

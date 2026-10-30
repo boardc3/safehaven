@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, useReducedMotion, useInView, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion'
 
@@ -88,6 +88,13 @@ export function usePageMeta(title, desc) {
     if (!m) { m = document.createElement('meta'); m.name = 'description'; document.head.appendChild(m) }
     m.content = desc
   }, [title, desc])
+}
+
+/** true one frame after mount: use as the `animate` trigger for load animations so they always play. */
+export function useMounted() {
+  const [m, setM] = useState(false)
+  useEffect(() => { const id = requestAnimationFrame(() => setM(true)); return () => cancelAnimationFrame(id) }, [])
+  return m
 }
 
 export const usd = n => '$' + Math.round(n).toLocaleString('en-US')

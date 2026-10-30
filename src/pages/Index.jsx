@@ -1,4 +1,4 @@
-import { A, Section, Stagger, item, usePageMeta, H2, Tilt, Parallax, Marquee } from '../ui.jsx'
+import { A, Section, Stagger, item, usePageMeta, H2, Tilt, Parallax, Marquee, useMounted } from '../ui.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Receipt, FeeCheck, Tabs, Faq } from '../components.jsx'
 
@@ -20,9 +20,10 @@ const FAQ = [
 ]
 function HeroTitle() {
   const reduce = useReducedMotion()
+  const go = useMounted() || reduce
   const words = ["Find", "out", "what", "you're", <em key="r">really</em>, "paying", "to", "accept", "cards."]
   return (
-    <motion.h1 initial={reduce ? false : 'hidden'} animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } } }} aria-label="Find out what you're really paying to accept cards.">
+    <motion.h1 initial={reduce ? false : 'hidden'} animate={go ? 'show' : 'hidden'} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } } }} aria-label="Find out what you're really paying to accept cards.">
       {words.map((w, i) => <motion.span key={i} className="w" variants={{ hidden: { opacity: 0, y: '0.4em' }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.7, 0.2, 1] } } }}>{w}{i < words.length - 1 ? ' ' : ''}</motion.span>)}
     </motion.h1>
   )

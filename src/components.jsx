@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { A, Counter, usd, num } from './ui.jsx'
+import { A, Counter, usd, num, useMounted } from './ui.jsx'
 
 const ease = [0.2, 0.7, 0.2, 1]
 
@@ -15,10 +15,11 @@ export function Receipt() {
     ['"Regulatory" surcharge', '$183.15', true],
   ]
   const row = { hidden: { opacity: 0, x: -14 }, show: { opacity: 1, x: 0, transition: { duration: 0.5, ease } } }
+  const go = useMounted() || reduce
   return (
-    <motion.div className="receipt-wrap" initial={reduce ? false : { opacity: 0, y: 60, rotate: -6 }} animate={{ opacity: 1, y: 0, rotate: -2 }} transition={{ duration: 0.9, ease, delay: 0.35 }}>
+    <motion.div className="receipt-wrap" initial={reduce ? false : { opacity: 0, y: 60, rotate: -6 }} animate={go ? { opacity: 1, y: 0, rotate: -2 } : { opacity: 0, y: 60, rotate: -6 }} transition={{ duration: 0.9, ease, delay: 0.35 }}>
       <motion.div animate={reduce ? undefined : { y: [0, -6, 0], rotate: [0, 0.6, 0] }} transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 3 }}>
-        <motion.div className="receipt" initial={reduce ? false : 'hidden'} animate="show"
+        <motion.div className="receipt" initial={reduce ? false : 'hidden'} animate={go ? 'show' : 'hidden'}
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.26, delayChildren: 1 } } }}>
           <div className="head"><b>Monthly statement</b><span>Oct 2026</span></div>
           {lines.map(([k, v, hid]) => (

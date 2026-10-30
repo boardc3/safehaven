@@ -1,4 +1,4 @@
-import { A, Section, Stagger, item, usePageMeta } from '../ui.jsx'
+import { A, Section, Stagger, item, usePageMeta, H2, Tilt, Parallax, Marquee } from '../ui.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
 
 export default function Payments() {
@@ -8,14 +8,14 @@ export default function Payments() {
   <div className="wrap">
     <div>
       <p className="crumbs"><A href="solutions.html">Solutions</A> / Merchant processing</p>
-      <h1>Pricing you can actually read, and a team that answers.</h1>
+      <H2 as="h1">Pricing you can actually read, and a team that answers.</H2>
       <p className="lead">Countertop, mobile, online, invoicing and virtual terminal, priced transparently and reviewed for free before you commit to anything.</p>
       <div className="hero-ctas">
         <A className="btn btn-glass" href="contact.html#review">Review my rates</A>
         <A className="btn btn-outline" href="index.html#check">Try the fee check</A>
       </div>
     </div>
-    <div className="art" aria-hidden="true">
+    <Tilt className="art" aria-hidden="true">
       <svg viewBox="0 0 500 400">
         <defs><linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#0f2b3f"/><stop offset="1" stopColor="#215f7f"/></linearGradient></defs>
         <rect width="500" height="400" fill="url(#mbg)"/>
@@ -43,13 +43,13 @@ export default function Payments() {
           <g fill="#3b4d5c"><rect x="14" y="78" width="28" height="16" rx="3"/><rect x="51" y="78" width="28" height="16" rx="3"/><rect x="88" y="78" width="28" height="16" rx="3"/><rect x="14" y="102" width="28" height="16" rx="3"/><rect x="51" y="102" width="28" height="16" rx="3"/><rect x="88" y="102" width="28" height="16" rx="3"/><rect x="14" y="126" width="28" height="16" rx="3"/><rect x="51" y="126" width="28" height="16" rx="3"/><rect x="88" y="126" width="28" height="16" rx="3" fill="#d9a441"/></g>
         </g>
       </svg>
-    </div>
+    </Tilt>
   </div>
 </Section>
 
 <Section>
   <div className="wrap">
-    <div className="sec-head"><p className="kicker">What you get</p><h2>Most businesses start here.</h2></div>
+    <div className="sec-head"><p className="kicker">What you get</p><H2>Most businesses start here.</H2></div>
     <Stagger className="grid4">
       <motion.div variants={item} className="feature"><h3>Transparent pricing</h3><p>Interchange-plus or cash discount, explained in plain English before you sign. Every statement shows the card networks' cost and ours separately.</p></motion.div>
       <motion.div variants={item} className="feature"><h3>Equipment programs</h3><p>Countertop terminals, mobile readers and integrated POS, with programs for qualified merchants so hardware isn't a reason to wait.</p></motion.div>
@@ -61,7 +61,7 @@ export default function Payments() {
 
 <Section className="alt">
   <div className="wrap">
-    <div className="sec-head"><p className="kicker">Ways to accept</p><h2>Wherever the sale happens.</h2></div>
+    <div className="sec-head"><p className="kicker">Ways to accept</p><H2>Wherever the sale happens.</H2></div>
     <Stagger className="grid3">
       <motion.div variants={item} className="feature"><div className="ic"><svg viewBox="0 0 24 24" width="24" height="24"><rect x="4" y="3" width="16" height="18" rx="3" stroke="#2c7a66" strokeWidth="1.8" fill="none"/><rect x="7" y="6" width="10" height="5" rx="1" stroke="#2c7a66" strokeWidth="1.8" fill="none"/><path d="M8 15h2M12 15h2M8 18h2M12 18h2" stroke="#2c7a66" strokeWidth="1.8" strokeLinecap="round"/></svg></div><h3>Countertop</h3><p>Terminals with tap, chip and swipe, tipping and receipts, for shops, restaurants and front desks.</p></motion.div>
       <motion.div variants={item} className="feature"><div className="ic"><svg viewBox="0 0 24 24" width="24" height="24"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="#2c7a66" strokeWidth="1.8" fill="none"/><path d="M11 18h2" stroke="#2c7a66" strokeWidth="1.8" strokeLinecap="round"/></svg></div><h3>Mobile</h3><p>Phone and tablet readers for service calls, markets, deliveries and anywhere without a counter.</p></motion.div>
@@ -77,7 +77,7 @@ export default function Payments() {
   <div className="wrap" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'56px',alignItems:'center'}}>
     <div>
       <p className="kicker">Prefer Square?</p>
-      <h2>We set that up too.</h2>
+      <H2>We set that up too.</H2>
       <p className="lead">Keep Square's simplicity with Safe Haven's hands-on setup and support behind it, on cash discount or interchange-plus pricing.</p>
       <A className="btn btn-outline" href="square.html">Explore Square solutions</A>
     </div>
@@ -91,7 +91,7 @@ export default function Payments() {
 
 <Section className="cta-band">
   <div className="wrap">
-    <div><p className="kicker" style={{color:'#8fd4bf'}}>Free statement review</p><h2>Send one statement. Get one honest number.</h2><p style={{margin:'0'}}>If staying put is your best move, we'll say so.</p></div>
+    <div><p className="kicker" style={{color:'#8fd4bf'}}>Free statement review</p><H2>Send one statement. Get one honest number.</H2><p style={{margin:'0'}}>If staying put is your best move, we'll say so.</p></div>
     <div className="acts"><A className="btn btn-glass" href="contact.html#review">Review my rates</A><A className="btn btn-outline" href="tel:+18668088183">Call (866) 808-8183</A></div>
   </div>
 </Section>

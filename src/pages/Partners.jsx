@@ -1,4 +1,4 @@
-import { A, Section, Stagger, item, usePageMeta } from '../ui.jsx'
+import { A, Section, Stagger, item, usePageMeta, H2, Tilt, Parallax, Marquee } from '../ui.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
 import { PartnerCalc } from '../components.jsx'
 
@@ -9,11 +9,11 @@ export default function Partners() {
   <div className="wrap">
     <div>
       <p className="crumbs"><A href="index.html">Home</A> / Partners</p>
-      <h1>Refer a business once. Earn for as long as it stays.</h1>
+      <H2 as="h1">Refer a business once. Earn for as long as it stays.</H2>
       <p className="lead">Partner with Safe Haven Payments to bring reliable, hand-picked payment solutions to your network while growing your revenue through our flexible referral and membership programs.</p>
       <div className="hero-ctas"><A className="btn btn-glass" href="contact.html#partner">Become a partner</A><A className="btn btn-outline" href="login.html#partner">Partner login</A></div>
     </div>
-    <div className="art" aria-hidden="true">
+    <Tilt className="art" aria-hidden="true">
       <svg viewBox="0 0 500 400">
         <rect width="500" height="400" fill="#fbf8f2"/>
         <g stroke="#d3ccbe" strokeWidth="3"><path d="M250 200L110 110M250 200l140-90M250 200L90 260M250 200l160 60M250 200l-60 140M250 200l60 140"/></g>
@@ -22,13 +22,13 @@ export default function Partners() {
         <g fill="#fff" fontFamily="Manrope" fontWeight="700" fontSize="12" textAnchor="middle"><text x="110" y="115">CAFÉ</text><text x="390" y="115">CLINIC</text><text x="90" y="265">SHOP</text><text x="410" y="265">GYM</text><text x="190" y="345">FIRM</text><text x="310" y="345">SALON</text></g>
         <g fill="#2c7a66" fontFamily="Manrope" fontWeight="700" fontSize="12"><text x="150" y="150">$</text><text x="330" y="150">$</text><text x="150" y="240">$</text><text x="340" y="240">$</text><text x="210" y="280">$</text><text x="285" y="280">$</text></g>
       </svg>
-    </div>
+    </Tilt>
   </div>
 </Section>
 
 <Section>
   <div className="wrap">
-    <div className="sec-head"><p className="kicker">Why a Safe Haven partnership</p><h2>Four ways to work together. One residual that keeps paying.</h2></div>
+    <div className="sec-head"><p className="kicker">Why a Safe Haven partnership</p><H2>Four ways to work together. One residual that keeps paying.</H2></div>
     <Stagger className="grid2">
       <motion.div variants={item} className="feature"><div className="ic"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M11 27l6-7 5 4 7-9" stroke="#2c7a66" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" transform="translate(-5 -7)"/></svg></div><h3>ISOs and sales teams</h3><p>From individuals to whole operations and everything in between, there's a fit for you: competitive splits, residual protection and a back office that treats your merchants like ours.</p><A href="careers.html">Bringing a team? See team transitions</A></motion.div>
       <motion.div variants={item} className="feature"><div className="ic"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z" stroke="#2c7a66" strokeWidth="1.8" fill="none" strokeLinejoin="round"/></svg></div><h3>Safe Haven membership partners</h3><p>Bring your service to the entire SHP membership program. Vetted vendors get a seat in front of every member merchant.</p><A href="solutions.html#membership">About membership</A></motion.div>
@@ -42,7 +42,7 @@ export default function Partners() {
   <div className="wrap" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'64px',alignItems:'center'}}>
     <div>
       <p className="kicker">Partner possibility calculator</p>
-      <h2>What could your referrals be worth?</h2>
+      <H2>What could your referrals be worth?</H2>
       <p className="lead">Refer a business once and earn a residual for as long as it stays active. Put in your own numbers and see how it stacks.</p>
       <ul className="chk"><li>Residuals paid monthly on every active account</li><li>Capital, payroll and insurance referrals pay too</li><li>Transparent reporting in the partner portal</li></ul>
     </div>
@@ -52,7 +52,7 @@ export default function Partners() {
 
 <Section>
   <div className="wrap">
-    <div className="sec-head center"><p className="kicker">How it works</p><h2>Introduce. We do the rest.</h2></div>
+    <div className="sec-head center"><p className="kicker">How it works</p><H2>Introduce. We do the rest.</H2></div>
     <Stagger className="timeline">
       <motion.div variants={item} className="tl"><div className="dot">1</div><h3>Sign up</h3><p>A short agreement and a partner login. No quota, no minimums.</p></motion.div>
       <motion.div variants={item} className="tl"><div className="dot">2</div><h3>Make the introduction</h3><p>Send a name and a number through the portal, or warm-transfer a call. We take it from there.</p></motion.div>
@@ -63,7 +63,7 @@ export default function Partners() {
 
 <Section className="cta-band">
   <div className="wrap">
-    <div><p className="kicker" style={{color:'#8fd4bf'}}>Partner with us</p><h2>Tell us about your network. We'll map the fit.</h2><p style={{margin:'0'}}>A partnerships lead follows up within one business day.</p></div>
+    <div><p className="kicker" style={{color:'#8fd4bf'}}>Partner with us</p><H2>Tell us about your network. We'll map the fit.</H2><p style={{margin:'0'}}>A partnerships lead follows up within one business day.</p></div>
     <div className="acts"><A className="btn btn-glass" href="contact.html#partner">Become a partner</A><A className="btn btn-outline" href="tel:+18668088183">Call (866) 808-8183</A></div>
   </div>
 </Section>

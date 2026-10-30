@@ -1,4 +1,4 @@
-import { A, Section, Stagger, item, usePageMeta } from '../ui.jsx'
+import { A, Section, Stagger, item, usePageMeta, H2, Tilt, Parallax, Marquee } from '../ui.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Receipt, FeeCheck, Tabs, Faq } from '../components.jsx'
 
@@ -28,6 +28,8 @@ function HeroTitle() {
   )
 }
 
+const MERCHANTS = ['Cafés', 'Contractors', 'Dental clinics', 'Salons', 'Auto shops', 'Restaurants', 'Boutiques', 'Gyms', 'Law firms', 'Nonprofits', 'Franchises', 'Municipalities', 'Online stores', 'Food trucks']
+
 export default function Index() {
   usePageMeta("Safe Haven Payments | Know what you're really paying", 'Free statement review for business owners. We total every card-processing fee into one honest number, show our work, and tell you plainly whether switching is worth it.')
   return (<>
@@ -52,8 +54,8 @@ export default function Index() {
       </ul>
     </div>
 
-    <div className="hero-visual" aria-hidden="true">
-      <div className="photo">
+    <Tilt strength={6} className="hero-visual" aria-hidden="true">
+      <Parallax speed={0.25} className="photo">
         
         <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -77,7 +79,7 @@ export default function Index() {
           <g fill="#3f9e86"><rect x="56" y="126" width="40" height="44" rx="6"/><rect x="118" y="134" width="30" height="36" rx="6"/><rect x="170" y="120" width="28" height="50" rx="6"/><rect x="220" y="138" width="50" height="32" rx="6"/><rect x="296" y="124" width="34" height="46" rx="6"/><rect x="350" y="130" width="52" height="40" rx="6"/></g>
           <g fill="#f3eee4"><rect x="62" y="232" width="30" height="38" rx="5"/><rect x="108" y="222" width="44" height="48" rx="6"/><rect x="176" y="238" width="28" height="32" rx="5"/><rect x="224" y="226" width="34" height="44" rx="6"/><rect x="282" y="236" width="52" height="34" rx="6"/><rect x="356" y="224" width="30" height="46" rx="5"/></g>
           
-          <path d="M470 0v110" stroke="#0f2b3f" strokeWidth="4"/><path d="M430 110h80l-14 46h-52z" fill="#d9a441"/><ellipse cx="470" cy="160" rx="22" ry="6" fill="#fff3c4" opacity=".9"/>
+          <path d="M470 0v110" stroke="#0f2b3f" strokeWidth="4"/><path d="M430 110h80l-14 46h-52z" fill="#d9a441"/><ellipse className="lamp-glow" cx="470" cy="160" rx="22" ry="6" fill="#fff3c4" opacity=".9"/>
           
           <rect x="0" y="410" width="800" height="190" fill="url(#counter)"/>
           <rect x="0" y="404" width="800" height="14" fill="#d8b07a"/>
@@ -102,14 +104,14 @@ export default function Index() {
           <path d="M560 270c10-16 30-20 44-10" stroke="#e4ae84" strokeWidth="6" strokeLinecap="round" fill="none"/>
           
           <path d="M120 350h70l-8 56h-54z" fill="#f3eee4"/><path d="M190 360c18 0 22 26 0 30" stroke="#f3eee4" strokeWidth="8" fill="none"/><path d="M128 344h54" stroke="#d6cdbb" strokeWidth="6" strokeLinecap="round"/>
-          <path d="M140 330c0-14 8-14 8-26M158 330c0-14 8-14 8-26" stroke="#fff" strokeWidth="3" strokeLinecap="round" opacity=".7"/>
+          <g className="steam"><path d="M140 330c0-14 8-14 8-26" stroke="#fff" strokeWidth="3" strokeLinecap="round" opacity=".7"/><path d="M158 330c0-14 8-14 8-26" stroke="#fff" strokeWidth="3" strokeLinecap="round" opacity=".7"/></g>
           
           <path d="M620 404h120l-6 20H626z" fill="#fff"/>
         </svg>
-      </div>
+      </Parallax>
 
       <Receipt />
-    </div>
+    </Tilt>
   </div>
 </Section>
 
@@ -124,11 +126,13 @@ export default function Index() {
 </div>
 
 
+<Marquee items={MERCHANTS} />
+
 <Section className="feecheck" id="check">
   <div className="wrap">
     <div>
       <p className="kicker">60-second fee check</p>
-      <h2>Two numbers from last month's statement tell you most of the story.</h2>
+      <H2>Two numbers from last month's statement tell you most of the story.</H2>
       <p className="lead">Your effective rate is everything you paid divided by everything you sold. Most owners have never seen theirs. Once you do, the conversation gets a lot shorter.</p>
       <div className="proof">
         <div><svg viewBox="0 0 40 40" width="40" height="40"><rect width="40" height="40" rx="12" fill="#e6f4ef"/><path d="M12 27l6-7 5 4 6-9" stroke="#2c7a66" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg><div><b>Under 2.2%</b><span>You're in good shape. We'll confirm it and send you on your way.</span></div></div>
@@ -146,7 +150,7 @@ export default function Index() {
   <div className="wrap">
     <div className="sec-head center">
       <p className="kicker">How it works</p>
-      <h2>Reviewed, explained, and switched only if it's worth it.</h2>
+      <H2>Reviewed, explained, and switched only if it's worth it.</H2>
     </div>
     <Stagger className="steps">
       <motion.div variants={item} className="step">
@@ -176,7 +180,7 @@ export default function Index() {
   <div className="wrap">
     <div className="sec-head">
       <p className="kicker">Solutions</p>
-      <h2>Start with payments. Add the rest when you're ready.</h2>
+      <H2>Start with payments. Add the rest when you're ready.</H2>
       <p className="lead">One team behind every part of the money side of your business, so you make one call instead of six.</p>
     </div>
 
@@ -214,12 +218,12 @@ export default function Index() {
   <div className="wrap">
     <div className="text">
       <p className="kicker" style={{color:'#8fd4bf'}}>Our story</p>
-      <h2>Built on one question owners kept asking.</h2>
+      <H2>Built on one question owners kept asking.</H2>
       <p>Safe Haven began with statement reviews at kitchen tables and shop counters, and the same line from every owner: <em>"I don't know what I'm actually paying."</em> Answering that honestly became our whole business. Payments came first. Coverage, payroll, benefits and capital followed because merchants asked us to look at the rest.</p>
       <blockquote>We start with how your business actually runs, then match the solution to it. If something doesn't fit, we won't push it.<cite>The Safe Haven promise</cite></blockquote>
       <div style={{marginTop:'32px'}}><A className="btn btn-light" href="about.html">Meet the team</A></div>
     </div>
-    <div className="scene" aria-hidden="true">
+    <Parallax className="scene" aria-hidden="true" speed={0.35}>
       
       <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
         <defs>
@@ -236,11 +240,11 @@ export default function Index() {
         <path d="M176 200h48M170 260h60M164 320h72" stroke="#b23a3a" strokeWidth="14"/>
         <rect x="168" y="130" width="64" height="40" rx="4" fill="#0f2b3f"/>
         <rect x="176" y="136" width="48" height="28" fill="#fff3c4"/>
-        <path d="M232 150L600 60v180z" fill="url(#beam2)"/>
+        <motion.path className="beam-rot" d="M232 150L600 60v180z" fill="url(#beam2)" animate={{ rotate: [-14, 10, -14], opacity: [0.6, 1, 0.6] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}/>
         <path d="M200 100l-14 30h28z" fill="#0f2b3f"/>
-        <g fill="#fff" opacity=".8"><circle cx="80" cy="60" r="2"/><circle cx="140" cy="40" r="1.5"/><circle cx="300" cy="80" r="2"/><circle cx="360" cy="30" r="1.5"/><circle cx="520" cy="110" r="1.5"/><circle cx="560" cy="40" r="2"/></g>
+        <g className="stars" fill="#fff" opacity=".8"><circle cx="80" cy="60" r="2"/><circle cx="140" cy="40" r="1.5"/><circle cx="300" cy="80" r="2"/><circle cx="360" cy="30" r="1.5"/><circle cx="520" cy="110" r="1.5"/><circle cx="560" cy="40" r="2"/></g>
       </svg>
-    </div>
+    </Parallax>
   </div>
 </Section>
 
@@ -249,7 +253,7 @@ export default function Index() {
   <div className="wrap">
     <div className="sec-head">
       <p className="kicker">Who we serve</p>
-      <h2>The same transparent approach, fitted to how you operate.</h2>
+      <H2>The same transparent approach, fitted to how you operate.</H2>
     </div>
 
     <Stagger className="mosaic" aria-hidden="true">
@@ -270,7 +274,7 @@ export default function Index() {
 
 <Section>
   <div className="wrap">
-    <div className="sec-head center"><p className="kicker">From our merchants</p><h2>Every solution. Every kind of business.</h2></div>
+    <div className="sec-head center"><p className="kicker">From our merchants</p><H2>Every solution. Every kind of business.</H2></div>
     <Stagger className="quotes">
       <motion.figure variants={item} className="quote"><div className="stars">★★★★★</div><p>"Square was easy. Square with Safe Haven behind it was effortless, set up right the first time."</p><figcaption className="who"><div className="avatar" style={{background:'#3f9e86'}}>M</div><div><b>Café owner</b>Coffee &amp; quick service</div></figcaption></motion.figure>
       <motion.figure variants={item} className="quote"><div className="stars">★★★★★</div><p>"New contracts used to mean a cash crunch. Now growth pays for itself instead of squeezing us."</p><figcaption className="who"><div className="avatar" style={{background:'#d9a441'}}>R</div><div><b>Owner</b>Construction firm</div></figcaption></motion.figure>
@@ -284,7 +288,7 @@ export default function Index() {
   <div className="wrap">
     <div>
       <p className="kicker">Partner with us</p>
-      <h2>Refer a business once. Earn for as long as it stays.</h2>
+      <H2>Refer a business once. Earn for as long as it stays.</H2>
       <p className="lead">Bring hand-picked payment and business solutions to your network, backed by a team that treats your referrals like their own.</p>
       <Stagger className="ptypes">
         <motion.div variants={item} className="ptype"><svg viewBox="0 0 40 40" width="40" height="40"><rect width="40" height="40" rx="12" fill="#e6f4ef"/><path d="M12 28V16l8-5 8 5v12" stroke="#2c7a66" strokeWidth="2" fill="none" strokeLinejoin="round"/><path d="M16 28v-6h8v6" stroke="#2c7a66" strokeWidth="2" fill="none"/></svg><div><b>Accountants, bookkeepers &amp; brokers</b><span>Direct referral partnerships for trusted advisors.</span></div></motion.div>
@@ -315,7 +319,7 @@ export default function Index() {
 
 <Section id="faq">
   <div className="wrap">
-    <div className="sec-head center"><p className="kicker">Questions</p><h2>Straight answers before you call.</h2></div>
+    <div className="sec-head center"><p className="kicker">Questions</p><H2>Straight answers before you call.</H2></div>
     <Faq items={FAQ} />
   </div>
 </Section>
@@ -323,7 +327,7 @@ export default function Index() {
 
 <Section className="cta-band">
   <div className="wrap">
-    <div><p className="kicker" style={{color:'#8fd4bf'}}>Get started</p><h2>Send one statement. Get one honest number.</h2><p style={{fontSize:'1.08rem',margin:'0'}}>A real person will follow up, usually by the next business day. No obligation, and if staying put is your best move, we'll say so.</p></div>
+    <div><p className="kicker" style={{color:'#8fd4bf'}}>Get started</p><H2>Send one statement. Get one honest number.</H2><p style={{fontSize:'1.08rem',margin:'0'}}>A real person will follow up, usually by the next business day. No obligation, and if staying put is your best move, we'll say so.</p></div>
     <div className="acts"><A className="btn btn-glass" href="contact.html#review">Get my free review</A><A className="btn btn-outline" href="tel:+18668088183">Call (866) 808-8183</A></div>
   </div>
 </Section>

@@ -1,4 +1,4 @@
-import { A, Section, Stagger, item, usePageMeta } from '../ui.jsx'
+import { A, Section, Stagger, item, usePageMeta, H2, Tilt, Parallax, Marquee } from '../ui.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
 
 export default function Solutions() {
@@ -8,11 +8,11 @@ export default function Solutions() {
   <div className="wrap">
     <div>
       <p className="crumbs"><A href="index.html">Home</A> / Solutions</p>
-      <h1>Start with payments. Add the rest when you're ready.</h1>
+      <H2 as="h1">Start with payments. Add the rest when you're ready.</H2>
       <p className="lead">One team behind every part of the money side of your business, so you make one call instead of six. Each solution stands on its own; together they share one login, one statement and one person who knows your account.</p>
       <div className="hero-ctas"><A className="btn btn-glass" href="contact.html#review">Get my free review</A><A className="btn btn-outline" href="tel:+18668088183">Call (866) 808-8183</A></div>
     </div>
-    <div className="art" aria-hidden="true">
+    <Tilt className="art" aria-hidden="true">
       <svg viewBox="0 0 500 400">
         <rect width="500" height="400" fill="#174a66"/>
         <circle cx="250" cy="200" r="150" fill="none" stroke="#3f9e86" strokeWidth="2" opacity=".5"/>
@@ -22,7 +22,7 @@ export default function Solutions() {
         <g fill="#fbf8f2"><circle cx="250" cy="50" r="28"/><circle cx="380" cy="125" r="28"/><circle cx="380" cy="275" r="28"/><circle cx="250" cy="350" r="28"/><circle cx="120" cy="275" r="28"/><circle cx="120" cy="125" r="28"/></g>
         <g fontFamily="Manrope" fontWeight="700" fontSize="11" fill="#0f2b3f" textAnchor="middle"><text x="250" y="54">PAY</text><text x="380" y="129">SQUARE</text><text x="380" y="279">INSURE</text><text x="250" y="354">PAYROLL</text><text x="120" y="279">CAPITAL</text><text x="120" y="129">SAVE</text></g>
       </svg>
-    </div>
+    </Tilt>
   </div>
 </Section>
 
@@ -58,7 +58,7 @@ export default function Solutions() {
   <div className="wrap" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'56px',alignItems:'center'}}>
     <div>
       <p className="kicker">SHP membership</p>
-      <h2>Preferred access across every solution.</h2>
+      <H2>Preferred access across every solution.</H2>
       <p className="lead">Membership is how our longest-standing merchants get more out of the relationship: ongoing statement reviews, first access to new programs and perks that grow the longer you stay.</p>
       <ul className="chk"><li>An annual statement review, so your rate never drifts</li><li>Preferred pricing when you add payroll, coverage or capital</li><li>Partner-provided member services from vetted vendors</li><li>Priority support from the team that knows your account</li></ul>
       <A className="btn btn-primary" href="contact.html#review">Ask about membership</A>
@@ -88,7 +88,7 @@ export default function Solutions() {
     </div>
     <div>
       <p className="kicker">Employee savings app</p>
-      <h2>A retention perk your team will actually use.</h2>
+      <H2>A retention perk your team will actually use.</H2>
       <p className="lead">Simple savings tools your employees set up themselves, funded straight from payroll. Easy to offer, no administration for you, and a reason for good people to stay.</p>
       <ul className="chk"><li>Automatic transfers each pay run, chosen by the employee</li><li>Goals, progress and alerts in the app</li><li>No cost to set up when you run payroll with us</li></ul>
       <A className="btn btn-primary" href="contact.html#review">Offer it to my team</A>
@@ -100,7 +100,7 @@ export default function Solutions() {
   <div className="wrap" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'56px',alignItems:'center'}}>
     <div>
       <p className="kicker">ISV &amp; integrations</p>
-      <h2>Payments that meet your software where it is.</h2>
+      <H2>Payments that meet your software where it is.</H2>
       <p className="lead">Already running a POS, an e-commerce cart or practice-management software? We connect to the platforms businesses already use. Building software yourself? We help with embedded payments, from sandbox to go-live.</p>
       <ul className="chk"><li>Integrated POS and e-commerce platforms</li><li>Invoicing and recurring billing</li><li>Embedded payments for software vendors, with revenue share</li></ul>
       <A className="btn btn-primary" href="contact.html#review">Talk integrations</A>
@@ -116,7 +116,7 @@ export default function Solutions() {
 
 <Section className="cta-band">
   <div className="wrap">
-    <div><p className="kicker" style={{color:'#8fd4bf'}}>Not sure where to start?</p><h2>Start with one statement.</h2><p style={{margin:'0'}}>The free review tells you what you pay today. Everything else is optional, and only if it fits.</p></div>
+    <div><p className="kicker" style={{color:'#8fd4bf'}}>Not sure where to start?</p><H2>Start with one statement.</H2><p style={{margin:'0'}}>The free review tells you what you pay today. Everything else is optional, and only if it fits.</p></div>
     <div className="acts"><A className="btn btn-glass" href="contact.html#review">Get my free review</A><A className="btn btn-outline" href="tel:+18668088183">Call (866) 808-8183</A></div>
   </div>
 </Section>

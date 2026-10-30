@@ -1,4 +1,4 @@
-import { A, Section, Stagger, item, usePageMeta } from '../ui.jsx'
+import { A, Section, Stagger, item, usePageMeta, H2, Tilt, Parallax, Marquee } from '../ui.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
 import { PayrollEstimate } from '../components.jsx'
 
@@ -9,7 +9,7 @@ export default function Payroll() {
   <div className="wrap">
     <div>
       <p className="crumbs"><A href="solutions.html">Solutions</A> / Payroll &amp; benefits</p>
-      <h1>Payroll that doesn't compete with your cash flow.</h1>
+      <H2 as="h1">Payroll that doesn't compete with your cash flow.</H2>
       <p className="lead">Payroll is non-negotiable. Safe Haven Payroll keeps it simple, accurate, and in sync with the rest of your financial tools, so payday never depends on which invoices came in.</p>
       <div className="hero-ctas">
         <A className="btn btn-glass" href="contact.html#review?need=payroll">Get a payroll quote</A>
@@ -17,7 +17,7 @@ export default function Payroll() {
       </div>
       <p className="fine" style={{marginTop:'0'}}>No obligation. No impact on your credit score.</p>
     </div>
-    <div className="art" aria-hidden="true">
+    <Tilt className="art" aria-hidden="true">
       <svg viewBox="0 0 500 400">
         <defs><linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#174a66"/><stop offset="1" stopColor="#0f2b3f"/></linearGradient></defs>
         <rect width="500" height="400" fill="url(#pbg)"/>
@@ -49,7 +49,7 @@ export default function Payroll() {
         
         <circle cx="300" cy="100" r="40" fill="#3f9e86"/><path d="M284 100a16 16 0 0130-7M316 100a16 16 0 01-30 7" stroke="#fff" strokeWidth="4" fill="none" strokeLinecap="round"/><path d="M314 88l1 7-7 1M286 112l-1-7 7-1" stroke="#fff" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
-    </div>
+    </Tilt>
   </div>
 </Section>
 
@@ -78,7 +78,7 @@ export default function Payroll() {
 
 <Section className="alt">
   <div className="wrap">
-    <div className="sec-head"><p className="kicker">What's included</p><h2>Everything payday needs, and nothing you have to chase.</h2></div>
+    <div className="sec-head"><p className="kicker">What's included</p><H2>Everything payday needs, and nothing you have to chase.</H2></div>
     <Stagger className="grid3">
       <motion.div variants={item} className="feature"><div className="ic"><svg viewBox="0 0 24 24" width="24" height="24"><circle cx="9" cy="8" r="3.5" stroke="#2c7a66" strokeWidth="1.8" fill="none"/><path d="M3 20c.5-4 3-6 6-6s5.5 2 6 6" stroke="#2c7a66" strokeWidth="1.8" fill="none" strokeLinecap="round"/><path d="M16 8h5M16 12h5" stroke="#2c7a66" strokeWidth="1.8" strokeLinecap="round"/></svg></div><h3>Employees and contractors</h3><p>W-2 and 1099 workers in one run. Direct deposit, paper checks or pay cards, their choice.</p></motion.div>
       <motion.div variants={item} className="feature"><div className="ic"><svg viewBox="0 0 24 24" width="24" height="24"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#2c7a66" strokeWidth="1.8" fill="none"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#2c7a66" strokeWidth="1.8" strokeLinecap="round"/></svg></div><h3>Tax filing and year-end</h3><p>Quarterly filings, deposits, W-2s and 1099s prepared and filed. You get a copy; the agencies get theirs.</p></motion.div>
@@ -94,7 +94,7 @@ export default function Payroll() {
   <div className="wrap" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'56px',alignItems:'center'}}>
     <div>
       <p className="kicker">What manual payroll costs you</p>
-      <h2>Count the hours, not just the fees.</h2>
+      <H2>Count the hours, not just the fees.</H2>
       <p className="lead">Most owners underestimate how much time payroll takes once you add tax deposits, filings, corrections and year-end. Put your numbers in to see the rough picture.</p>
     </div>
     <PayrollEstimate />
@@ -103,7 +103,7 @@ export default function Payroll() {
 
 <Section className="cta-band">
   <div className="wrap">
-    <div><p className="kicker" style={{color:'#8fd4bf'}}>Get a payroll quote</p><h2>Tell us your headcount. We'll tell you the price.</h2><p style={{margin:'0'}}>No obligation and no impact on your credit score. A real person follows up, usually by the next business day.</p></div>
+    <div><p className="kicker" style={{color:'#8fd4bf'}}>Get a payroll quote</p><H2>Tell us your headcount. We'll tell you the price.</H2><p style={{margin:'0'}}>No obligation and no impact on your credit score. A real person follows up, usually by the next business day.</p></div>
     <div className="acts"><A className="btn btn-glass" href="contact.html#review">Talk to us about payroll</A><A className="btn btn-outline" href="tel:+18668088183">Call (866) 808-8183</A></div>
   </div>
 </Section>

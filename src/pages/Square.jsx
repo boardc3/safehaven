@@ -1,4 +1,4 @@
-import { A, Section, Stagger, item, usePageMeta } from '../ui.jsx'
+import { A, Section, Stagger, item, usePageMeta, H2, Tilt, Parallax, Marquee } from '../ui.jsx'
 import { motion, useReducedMotion } from 'framer-motion'
 
 export default function Square() {
@@ -8,7 +8,7 @@ export default function Square() {
   <div className="wrap">
     <div>
       <p className="crumbs"><A href="solutions.html">Solutions</A> / Square</p>
-      <h1>Square, set up right the first time.</h1>
+      <H2 as="h1">Square, set up right the first time.</H2>
       <p className="lead">Keep Square's simplicity, with Safe Haven's hands-on setup and support behind it. Same hardware, same app, plus a local team that picks up the phone.</p>
       <div className="hero-ctas">
         <A className="btn btn-glass" href="contact.html#review">Start my Square setup</A>
@@ -16,7 +16,7 @@ export default function Square() {
       </div>
       <p className="fine" style={{marginTop:'0'}}>No obligation. No impact on your credit score.</p>
     </div>
-    <div className="art" aria-hidden="true">
+    <Tilt className="art" aria-hidden="true">
       <svg viewBox="0 0 500 400">
         <rect width="500" height="400" fill="#f3eee4"/>
         <rect x="0" y="280" width="500" height="120" fill="#b98a52"/><rect x="0" y="274" width="500" height="12" fill="#d8b07a"/>
@@ -36,7 +36,7 @@ export default function Square() {
         <g fill="#d9a441"><circle cx="70" cy="240" r="12"/><circle cx="100" cy="240" r="12"/><circle cx="130" cy="240" r="12"/></g>
         <g fill="#b23a3a"><circle cx="70" cy="236" r="4"/><circle cx="100" cy="236" r="4"/><circle cx="130" cy="236" r="4"/></g>
       </svg>
-    </div>
+    </Tilt>
   </div>
 </Section>
 
@@ -65,7 +65,7 @@ export default function Square() {
 
 <Section className="alt" id="pricing">
   <div className="wrap">
-    <div className="sec-head center"><p className="kicker">Choose your pricing option</p><h2>Two ways to pay. Neither needs a rep.</h2><p className="lead">No pressure. Sign up directly with Square in minutes, and Safe Haven is here if you want local help along the way.</p></div>
+    <div className="sec-head center"><p className="kicker">Choose your pricing option</p><H2>Two ways to pay. Neither needs a rep.</H2><p className="lead">No pressure. Sign up directly with Square in minutes, and Safe Haven is here if you want local help along the way.</p></div>
     <div className="price">
       <div className="plan hi">
         <span className="tag">Keep more of every sale</span>
@@ -89,7 +89,7 @@ export default function Square() {
 
 <Section>
   <div className="wrap">
-    <div className="sec-head center"><p className="kicker">Setup</p><h2>Open by the weekend.</h2></div>
+    <div className="sec-head center"><p className="kicker">Setup</p><H2>Open by the weekend.</H2></div>
     <Stagger className="timeline">
       <motion.div variants={item} className="tl"><div className="dot">1</div><h3>Tell us about the counter</h3><p>What you sell, how you tip, whether you deliver. Fifteen minutes on the phone is plenty.</p></motion.div>
       <motion.div variants={item} className="tl"><div className="dot">2</div><h3>We configure it</h3><p>Account, catalog, taxes, hardware and staff logins, built the way your business runs.</p></motion.div>
@@ -100,7 +100,7 @@ export default function Square() {
 
 <Section className="cta-band">
   <div className="wrap">
-    <div><p className="kicker" style={{color:'#8fd4bf'}}>Start your Square setup</p><h2>Already on Square? We'll review that too.</h2><p style={{margin:'0'}}>Send a recent Square statement and we'll show you whether cash discount or IC Plus comes out ahead.</p></div>
+    <div><p className="kicker" style={{color:'#8fd4bf'}}>Start your Square setup</p><H2>Already on Square? We'll review that too.</H2><p style={{margin:'0'}}>Send a recent Square statement and we'll show you whether cash discount or IC Plus comes out ahead.</p></div>
     <div className="acts"><A className="btn btn-glass" href="contact.html#review">Talk to us about Square</A><A className="btn btn-outline" href="tel:+18668088183">Call (866) 808-8183</A></div>
   </div>
 </Section>

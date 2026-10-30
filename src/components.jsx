@@ -14,16 +14,23 @@ export function Receipt() {
     ['Statement & batch fees', '$38.70', true],
     ['"Regulatory" surcharge', '$183.15', true],
   ]
-  const row = { hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease } } }
+  const row = { hidden: { opacity: 0, x: -14 }, show: { opacity: 1, x: 0, transition: { duration: 0.5, ease } } }
   return (
-    <motion.div className="receipt" initial={reduce ? false : 'hidden'} animate="show"
-      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.22, delayChildren: 0.5 } } }}>
-      <div className="head"><b>Monthly statement</b><span>Oct 2026</span></div>
-      {lines.map(([k, v, hid]) => (
-        <motion.div key={k} className={'line' + (hid ? ' hidden-fee' : '')} variants={row}><span>{k}</span><span>{v}</span></motion.div>
-      ))}
-      <motion.div className="total" variants={row}><b>What you really paid</b><span className="amt">$1,280.20</span></motion.div>
-      <motion.div className="stamp" variants={{ hidden: { opacity: 0, scale: 1.6, rotate: 8 }, show: { opacity: 1, scale: 1, rotate: 8, transition: { duration: 0.35, ease } } }}>3.20% effective</motion.div>
+    <motion.div className="receipt-wrap" initial={reduce ? false : { opacity: 0, y: 60, rotate: -6 }} animate={{ opacity: 1, y: 0, rotate: -2 }} transition={{ duration: 0.9, ease, delay: 0.35 }}>
+      <motion.div animate={reduce ? undefined : { y: [0, -6, 0], rotate: [0, 0.6, 0] }} transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 3 }}>
+        <motion.div className="receipt" initial={reduce ? false : 'hidden'} animate="show"
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.26, delayChildren: 1 } } }}>
+          <div className="head"><b>Monthly statement</b><span>Oct 2026</span></div>
+          {lines.map(([k, v, hid]) => (
+            <motion.div key={k} className={'line' + (hid ? ' hidden-fee' : '')} variants={row}>
+              {hid && <motion.span className="sweep" aria-hidden="true" variants={{ hidden: { scaleX: 0 }, show: { scaleX: 1, transition: { duration: 0.5, ease, delay: 0.25 } } }} />}
+              <span className="k">{k}</span><span>{v}</span>
+            </motion.div>
+          ))}
+          <motion.div className="total" variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } }}><b>What you really paid</b><span className="amt">$1,280.20</span></motion.div>
+          <motion.div className="stamp" variants={{ hidden: { opacity: 0, scale: 2.4, rotate: 8 }, show: { opacity: 1, scale: [2.4, 0.92, 1.04, 1], rotate: [8, 8, 6, 8], transition: { duration: 0.55, ease: 'easeOut', times: [0, 0.5, 0.75, 1] } } }}>3.20% effective</motion.div>
+        </motion.div>
+      </motion.div>
     </motion.div>
   )
 }

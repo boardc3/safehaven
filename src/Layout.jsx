@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import { scrollToHash } from './ui.jsx'
 
 function Logo({ dark }) {
@@ -24,6 +24,10 @@ export default function Layout() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const reduce = useReducedMotion()
+  const { scrollYProgress } = useScroll()
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 26, mass: 0.4 })
+  const [first, setFirst] = useState(true)
+  useEffect(() => { setFirst(false) }, [loc.pathname])
 
   useEffect(() => {
     const f = () => setScrolled(window.scrollY > 8)
@@ -60,6 +64,7 @@ export default function Layout() {
             {NAV.map(([to, l]) => <li key={to}><Link to={to} aria-current={active(to) ? 'page' : undefined}>{l}</Link></li>)}
           </ul>
         </nav>
+        <motion.div className="progress" style={{ scaleX: progress }} aria-hidden="true" />
         <div className="hdr-cta">
           <a className="btn btn-outline call" href="tel:+18668088183">Call us</a>
           <Link className="btn btn-primary" to="/contact#review">Free statement review</Link>
@@ -71,10 +76,17 @@ export default function Layout() {
     <main id="main">
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={loc.pathname}
-          initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={reduce ? undefined : { opacity: 0, y: -8 }}
-          transition={{ duration: 0.32, ease: [0.2, 0.7, 0.2, 1] }}>
+          initial={reduce ? false : { opacity: 0, y: 24, scale: 0.995 }} animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, delay: 0.25, ease: [0.2, 0.7, 0.2, 1] } }}
+          exit={reduce ? undefined : { opacity: 0, y: -16, transition: { duration: 0.25 } }}>
           <Outlet />
         </motion.div>
+      </AnimatePresence>
+      <AnimatePresence>
+        {!reduce && <motion.div key={'curtain' + loc.pathname} className="curtain" aria-hidden="true"
+          initial={{ scaleY: 1, transformOrigin: 'top' }} animate={{ scaleY: 0, transformOrigin: 'top', transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.05 } }}
+          exit={{ scaleY: 1, transformOrigin: 'bottom', transition: { duration: 0.3, ease: [0.76, 0, 0.24, 1] } }}>
+          <svg width="64" height="64" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 5 10v10c0 9 6.5 15 15 17 8.5-2 15-8 15-17V10L20 3z" fill="rgba(255,255,255,.12)" /><path d="M13 23c2.4-1.6 4.6-1.6 7 0s4.6 1.6 7 0" stroke="#3f9e86" strokeWidth="2.2" strokeLinecap="round" fill="none" /><path d="M13 18.5c2.4-1.6 4.6-1.6 7 0s4.6 1.6 7 0" stroke="#d9a441" strokeWidth="2.2" strokeLinecap="round" fill="none" /></svg>
+        </motion.div>}
       </AnimatePresence>
     </main>
 

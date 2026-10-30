@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { A, Section, usePageMeta } from '../ui.jsx'
+import { A, Section, usePageMeta, H2, Tilt, Parallax } from '../ui.jsx'
 import { LeadForm } from '../components.jsx'
 
 export default function Contact() {
@@ -34,7 +34,7 @@ export default function Contact() {
 
     <Section className="alt">
       <div className="wrap">
-        <div className="sec-head"><p className="kicker">How can we help?</p><h2>One partner for payments, and everything money touches.</h2><p className="lead">Whether you're just starting out or managing a large enterprise, you deserve a partner who understands your business as well as you do. We believe in total transparency, honest reviews, and solutions that actually fit your operations. If you're ready to stop guessing at your costs and start growing with a team that has your back, we're ready to help.</p></div>
+        <div className="sec-head"><p className="kicker">How can we help?</p><H2>One partner for payments, and everything money touches.</H2><p className="lead">Whether you're just starting out or managing a large enterprise, you deserve a partner who understands your business as well as you do. We believe in total transparency, honest reviews, and solutions that actually fit your operations. If you're ready to stop guessing at your costs and start growing with a team that has your back, we're ready to help.</p></div>
         <div className="grid4">
           <div className="feature"><h3>Business owners</h3><p>Free statement review, then payroll, coverage and capital if they fit.</p><A href="contact.html#review">Start a review</A></div>
           <div className="feature"><h3>Current merchants</h3><p>Login help, equipment, chargebacks, statements. Call, or send the form with "Existing account".</p><A href="login.html">Merchant login</A></div>

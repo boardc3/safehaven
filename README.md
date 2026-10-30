@@ -25,7 +25,7 @@ The app uses hash routing so the `dist/` folder can be dropped on any static hos
 
 ## Animation notes
 
-Deliberately minimal: the hero headline and statement tally on load, sections fade-rise once on scroll, numbers ease to their value, tabs slide a pill, FAQ answers animate height, the partner chart draws its line, and routes cross-fade. Everything respects `prefers-reduced-motion`.
+Hero: headline rises word by word, the artwork tilts with the cursor and floats, and the statement slams in, sweeps red highlights across the hidden fees and stamps the effective rate. Scroll: every heading's words rise out of a mask, sections and card grids reveal with stagger, artwork moves on parallax, numbers count and pop, the partner chart draws its line, the lighthouse beam sweeps, stars twinkle, steam rises. Navigation: a navy curtain wipes between routes and a scroll-progress bar runs under the header. Hover: cards lift, icons tip, buttons sheen. Everything respects `prefers-reduced-motion`.
 
 ## Before launch
 

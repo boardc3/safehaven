@@ -420,3 +420,59 @@ header.site.scrolled{box-shadow:0 6px 24px -14px rgba(15,43,63,.35)}
 .hero h1 .w{display:inline-block}
 .chk li{display:block;position:relative;padding-left:32px}
 .chk li::before{position:absolute;left:0;top:3px;margin-top:0}
+
+/* ===== bigger motion ===== */
+.progress{position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:linear-gradient(90deg,var(--glass),var(--brass));transform-origin:left;z-index:2}
+header.site .wrap{position:relative}
+header.site{overflow:visible}
+.curtain{position:fixed;inset:0;z-index:90;background:var(--harbor);pointer-events:none}
+.curtain::after{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 50%,rgba(63,158,134,.35),transparent 70%)}
+.mask{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .04em .08em 0;margin-right:-.04em}
+.mask .w{display:inline-block;transform-origin:left bottom;will-change:transform}
+.receipt-wrap{position:absolute;left:-4%;bottom:-64px;width:min(360px,96%);transform-origin:center}
+.receipt{position:relative;left:auto;bottom:auto;width:100%;transform:none}
+.receipt .line{position:relative;z-index:1}
+.receipt .line .sweep{position:absolute;left:-8px;right:-8px;top:1px;bottom:1px;background:#fde8e8;border-radius:4px;transform-origin:left;z-index:-1}
+@media (max-width:980px){.receipt-wrap{left:16px;bottom:-10px;width:min(340px,88%)}}
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s var(--ease);z-index:-1}
+.btn:hover::after{left:120%}
+.btn-outline::after{background:linear-gradient(100deg,transparent,rgba(15,43,63,.08),transparent)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.feature,.sol,.step,.quote,.plan,.stat,.member,.ptype{transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+.feature:hover,.sol:hover,.step:hover,.quote:hover,.plan:hover,.stat:hover,.member:hover,.ptype:hover{transform:translateY(-6px);box-shadow:0 30px 50px -28px rgba(15,43,63,.45);border-color:var(--glass)}
+.feature .ic,.sol .ic{transition:transform .4s var(--ease),background .4s}
+.feature:hover .ic,.sol:hover .ic{transform:rotate(-8deg) scale(1.12);background:var(--brass-50)}
+.tile{transition:transform .5s var(--ease),box-shadow .5s}
+.tile:hover{transform:scale(1.04);box-shadow:0 20px 40px -20px rgba(15,43,63,.6);z-index:1}
+.tile svg{transition:transform 1.2s var(--ease)}
+.tile:hover svg{transform:scale(1.08)}
+.marquee{overflow:hidden;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;font:600 .95rem Manrope;color:var(--harbor);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee .track{display:flex;width:max-content;white-space:nowrap}
+.marquee span{display:inline-flex;align-items:center;gap:28px;padding-right:28px}
+.marquee i{width:8px;height:8px;border-radius:50%;background:var(--brass);display:inline-block}
+.hero-visual .photo{transform:translateZ(30px)}
+.page-hero .art{transform-style:preserve-3d}
+.page-hero .art svg{transform:translateZ(20px)}
+.tl .dot{transition:transform .3s var(--ease)}
+.tl:hover .dot{transform:scale(1.12)}
+.hero{overflow:visible}
+.beam-rot{transform-origin:232px 150px}
+@keyframes steam{0%{transform:translateY(0) scaleX(1);opacity:.7}100%{transform:translateY(-26px) scaleX(1.4);opacity:0}}
+.steam path{animation:steam 2.6s ease-out infinite}
+.steam path:nth-child(2){animation-delay:1.3s}
+@keyframes glow{0%,100%{opacity:.6}50%{opacity:1}}
+.lamp-glow{animation:glow 3s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+.stars circle{animation:twinkle 2.4s ease-in-out infinite}
+.stars circle:nth-child(2n){animation-delay:.8s}.stars circle:nth-child(3n){animation-delay:1.5s}
+@media (prefers-reduced-motion:reduce){.steam path,.lamp-glow,.stars circle{animation:none}.btn::after{display:none}}
+.hero-visual > div{position:relative;min-height:520px}
+@media (max-width:980px){.hero-visual > div{min-height:0}}
+.receipt .line.hidden-fee span:first-child::after{content:none}
+.receipt .line.hidden-fee .k::after{content:"hidden";font-size:.62rem;background:#fde8e8;color:#b23a3a;padding:2px 6px;border-radius:4px;margin-left:8px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.curtain{display:grid;place-items:center}
+.curtain svg{position:relative;z-index:1}
+.proof div{display:block}
+.proof > div{display:flex;gap:14px;align-items:flex-start}

@@ -26,10 +26,6 @@ export default function Layout() {
   const reduce = useReducedMotion()
   const { scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 26, mass: 0.4 })
-  // curtain only on a real route change, never on first load (robust to StrictMode double-mount)
-  const [navs, setNavs] = useState(0)
-  const prevPath = useRef(loc.pathname)
-  useEffect(() => { if (prevPath.current !== loc.pathname) { prevPath.current = loc.pathname; setNavs(n => n + 1) } }, [loc.pathname])
 
   useEffect(() => {
     const f = () => setScrolled(window.scrollY > 8)
@@ -78,17 +74,10 @@ export default function Layout() {
     <main id="main">
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={loc.pathname}
-          initial={reduce ? false : { opacity: 0, y: 24, scale: 0.995 }} animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, delay: navs > 0 ? 0.25 : 0, ease: [0.2, 0.7, 0.2, 1] } }}
+          initial={reduce ? false : { opacity: 0, y: 24, scale: 0.995 }} animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: [0.2, 0.7, 0.2, 1] } }}
           exit={reduce ? undefined : { opacity: 0, y: -16, transition: { duration: 0.25 } }}>
           <Outlet />
         </motion.div>
-      </AnimatePresence>
-      <AnimatePresence>
-        {!reduce && navs > 0 && <motion.div key={'curtain' + loc.pathname} className="curtain" aria-hidden="true"
-          initial={{ scaleY: 1, transformOrigin: 'top' }} animate={{ scaleY: 0, transformOrigin: 'top', transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.05 } }}
-          exit={{ scaleY: 1, transformOrigin: 'bottom', transition: { duration: 0.3, ease: [0.76, 0, 0.24, 1] } }}>
-          <svg width="64" height="64" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 5 10v10c0 9 6.5 15 15 17 8.5-2 15-8 15-17V10L20 3z" fill="rgba(255,255,255,.12)" /><path d="M13 23c2.4-1.6 4.6-1.6 7 0s4.6 1.6 7 0" stroke="#3f9e86" strokeWidth="2.2" strokeLinecap="round" fill="none" /><path d="M13 18.5c2.4-1.6 4.6-1.6 7 0s4.6 1.6 7 0" stroke="#d9a441" strokeWidth="2.2" strokeLinecap="round" fill="none" /></svg>
-        </motion.div>}
       </AnimatePresence>
     </main>
 

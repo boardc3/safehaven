@@ -425,8 +425,6 @@ header.site.scrolled{box-shadow:0 6px 24px -14px rgba(15,43,63,.35)}
 .progress{position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:linear-gradient(90deg,var(--glass),var(--brass));transform-origin:left;z-index:2}
 header.site .wrap{position:relative}
 header.site{overflow:visible}
-.curtain{position:fixed;inset:0;z-index:90;background:var(--harbor);pointer-events:none}
-.curtain::after{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 50%,rgba(63,158,134,.35),transparent 70%)}
 .mask{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .04em .08em 0;margin-right:-.04em}
 .mask .w{display:inline-block;transform-origin:left bottom;will-change:transform}
 .receipt-wrap{position:absolute;left:-4%;bottom:-64px;width:min(360px,96%);transform-origin:center}
@@ -472,8 +470,6 @@ header.site{overflow:visible}
 @media (max-width:980px){.hero-visual > div{min-height:0}}
 .receipt .line.hidden-fee span:first-child::after{content:none}
 .receipt .line.hidden-fee .k::after{content:"hidden";font-size:.62rem;background:#fde8e8;color:#b23a3a;padding:2px 6px;border-radius:4px;margin-left:8px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
-.curtain{display:grid;place-items:center}
-.curtain svg{position:relative;z-index:1}
 .proof div{display:block}
 .proof > div{display:flex;gap:14px;align-items:flex-start}
 .gauge .bar{cursor:pointer}

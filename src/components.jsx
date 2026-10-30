@@ -54,9 +54,14 @@ export function FeeCheck() {
       <p style={{ color: 'var(--muted)', fontSize: '.93rem', marginBottom: 22 }}>Illustration only. Your free review gives you the real figure.</p>
       <div className="field"><label htmlFor="vol">Total card sales last month</label><div className="money"><span>$</span><input id="vol" type="text" inputMode="decimal" value={vol} onChange={e => setVol(e.target.value)} autoComplete="off" /></div></div>
       <div className="field"><label htmlFor="fees">Total fees charged that month</label><div className="money"><span>$</span><input id="fees" type="text" inputMode="decimal" value={fees} onChange={e => setFees(e.target.value)} autoComplete="off" /></div></div>
-      <div className="gauge" aria-hidden="true">
-        <div className="bar"><motion.div className="pin" animate={{ left: pct + '%' }} transition={{ type: 'spring', stiffness: 140, damping: 20 }} /></div>
+      <div className="gauge">
+        <div className="bar">
+          <motion.div className="pin" animate={{ left: pct + '%' }} transition={{ type: 'spring', stiffness: 140, damping: 20 }} aria-hidden="true" />
+          <input className="slider" type="range" min="1.5" max="4.5" step="0.01" value={Math.max(1.5, Math.min(4.5, rate || 1.5))}
+            aria-label="Effective rate" onChange={e => { const r = +e.target.value; const base = v > 0 ? v : 40000; if (v <= 0) setVol('40,000'); setFees(Math.round(base * r / 100).toLocaleString('en-US')) }} />
+        </div>
         <div className="ticks"><span>1.5%</span><span>2.5%</span><span>3.5%</span><span>4.5%+</span></div>
+        <p className="fine" style={{ margin: '6px 0 0' }}>Drag the dial to try a rate, or type your real numbers above.</p>
       </div>
       <div className="verdict" aria-live="polite">
         <div className="big"><Counter value={rate} format={n => n.toFixed(2)} /><small>%</small></div>

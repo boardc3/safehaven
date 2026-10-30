@@ -476,3 +476,11 @@ header.site{overflow:visible}
 .curtain svg{position:relative;z-index:1}
 .proof div{display:block}
 .proof > div{display:flex;gap:14px;align-items:flex-start}
+.gauge .bar{cursor:pointer}
+.gauge .slider{position:absolute;left:-14px;right:-14px;top:-12px;height:38px;width:calc(100% + 28px);margin:0;opacity:0;cursor:grab;-webkit-appearance:none;appearance:none;background:transparent}
+.gauge .slider:active{cursor:grabbing}
+.gauge .slider::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%}
+.gauge .slider::-moz-range-thumb{width:28px;height:28px;border-radius:50%;border:0}
+.gauge .slider:focus-visible{opacity:1;outline:none}
+.gauge .slider:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px var(--brass);background:transparent}
+.gauge .bar:has(.slider:hover) .pin{transform:translateX(-50%) scale(1.12)}

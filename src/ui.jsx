@@ -66,13 +66,17 @@ export const item = {
 /** Animated number: eases to the target whenever it changes. */
 export function Counter({ value, format = n => n, className }) {
   const reduce = useReducedMotion()
-  const mv = useMotionValue(value)
+  const mv = useMotionValue(0)
   const spring = useSpring(mv, { stiffness: 120, damping: 22, mass: 0.6 })
   const text = useTransform(spring, v => format(v))
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '0px 0px -10% 0px' })
-  useEffect(() => { if (reduce) { spring.jump(value); return } ; if (inView) mv.set(value) }, [value, inView, reduce])
-  useEffect(() => { if (!inView && !reduce) { mv.jump(0); spring.jump(0) } }, [])
+  const inView = useInView(ref, { once: true, margin: '0px 0px -5% 0px' })
+  const firstValue = useRef(value)
+  // count up from 0 the first time it is seen; after that (or if the value changes before it is seen) follow the value immediately
+  useEffect(() => {
+    if (reduce) { spring.jump(value); return }
+    if (inView || value !== firstValue.current) mv.set(value)
+  }, [value, inView, reduce])
   const scale = useTransform(spring, v => 1 + Math.min(0.08, Math.abs(v - value) / Math.max(1, Math.abs(value)) * 0.3))
   return <motion.span ref={ref} className={className} style={{ display: 'inline-block', scale: reduce ? 1 : scale }}>{text}</motion.span>
 }

@@ -37,8 +37,8 @@ export function Receipt() {
 
 /* ---------- Fee check ---------- */
 export function FeeCheck() {
-  const [vol, setVol] = useState('40,000')
-  const [fees, setFees] = useState('1,280')
+  const [vol, setVol] = useState('500,000')
+  const [fees, setFees] = useState('16,000')
   const [cut, setCut] = useState(0.5)
   const v = num(vol), f = num(fees)
   const rate = v > 0 ? f / v * 100 : 0
@@ -58,7 +58,7 @@ export function FeeCheck() {
         <div className="bar">
           <motion.div className="pin" animate={{ left: pct + '%' }} transition={{ type: 'spring', stiffness: 140, damping: 20 }} aria-hidden="true" />
           <input className="slider" type="range" min="1.5" max="4.5" step="0.01" value={Math.max(1.5, Math.min(4.5, rate || 1.5))}
-            aria-label="Effective rate" onChange={e => { const r = +e.target.value; const base = v > 0 ? v : 40000; if (v <= 0) setVol('40,000'); setFees(Math.round(base * r / 100).toLocaleString('en-US')) }} />
+            aria-label="Effective rate" onChange={e => { const r = +e.target.value; const base = v > 0 ? v : 500000; if (v <= 0) setVol('500,000'); setFees(Math.round(base * r / 100).toLocaleString('en-US')) }} />
         </div>
         <div className="ticks"><span>1.5%</span><span>2.5%</span><span>3.5%</span><span>4.5%+</span></div>
         <p className="fine" style={{ margin: '6px 0 0' }}>Drag the dial to try a rate, or type your real numbers above.</p>
